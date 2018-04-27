@@ -4,27 +4,32 @@
  */
 package avtomorfnie;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Yuri Tveritin
- *  * 
- * Задача 2 Автоморфные числа. Натуральное число называется автоморфным, если оно равно
- * последним цифрам своего квадрата. Например, 25 2 = 625. Напишите программу, 
- * которая вводит натуральное число N и выводит на экран все автоморфные числа,
- * не превосходящие N.
- * 
- * Класс, определящий автоморфные числа.
  * 
  */
 public class Avtomorfnie {
-//    int n=1000;
-    /**
-     * @param args the command line arguments
-     */
+    /**    
+    * @param args the command line arguments
+    */
     public static void main(String[] args) {
        algoritm(1000000); 
+       ex3(40);
     }
     
+    /**
+    * Задача 2 Автоморфные числа. Натуральное число называется автоморфным, если оно равно
+    * последним цифрам своего квадрата. Например, 25 2 = 625. Напишите программу, 
+    * которая вводит натуральное число N и выводит на экран все автоморфные числа,
+    * не превосходящие N.
+    * 
+    * Метод, определящий автоморфные числа.
+    * 
+    * @param n 
+    */
     static void algoritm (int n){
         
         for (int i=1; i<n ;i++){
@@ -43,6 +48,42 @@ public class Avtomorfnie {
 
 
         }
+    }
+    /**
+     * Задача 3. Реализовать алгоритм поиска простых чисел «Решето Эратосфена».
+     * Вывести самое большое число найденное с помощью этого алгоритма.
+     * Рассчитать время нахождения этого числа.
+     */
+    static void ex3(int n){
+        ArrayList<Integer> list=new ArrayList();
+        //заполняем список числами
+        for (int i=2;i<n+1;i++){
+            list.add(i);           
+        }        
+        
+        int p=0;
+        int delitel=0;
+        //зацикливаем для прохождения по всем элементам массива
+        while (p!=list.get(list.size()-1)){
+            
+            //выбираем новое число p
+            for (Integer item:list){                     
+                p=item;
+//                System.out.println(p);
+                if (p>delitel)break;//каждый раз число p должно быть больше своего предыдыщего 
+            }
+            delitel=p; //для хранения текущего числа p
+            //удаляем(вычеркиваем) из списка числа, кратные текущему числу p
+            for(int i=0;i<list.size();i++){
+                if((list.get(i)!=delitel)&(list.get(i)%delitel==0)) list.remove(i);
+            }
+            
+        }
+        //вывод результата
+        System.out.println();
+        for (Integer item:list){ 
+            System.out.println(item);
+        }      
     }
     
 }
