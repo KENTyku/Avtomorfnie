@@ -17,7 +17,7 @@ public class Avtomorfnie {
     */
     public static void main(String[] args) {
        algoritm(1000000); 
-       ex3(40);
+       ex3(1000);
     }
     
     /**
@@ -55,6 +55,7 @@ public class Avtomorfnie {
      * Рассчитать время нахождения этого числа.
      */
     static void ex3(int n){
+        long start = System.currentTimeMillis();
         ArrayList<Integer> list=new ArrayList();
         //заполняем список числами
         for (int i=2;i<n+1;i++){
@@ -82,8 +83,14 @@ public class Avtomorfnie {
         //вывод результата
         System.out.println();
         for (Integer item:list){ 
-            System.out.println(item);
-        }      
+            System.out.print(item+" ");
+        }
+        System.out.println();
+        System.out.println("max="+list.get(list.size()-1));
+        long finish = System.currentTimeMillis();
+        long time = finish - start;
+        System.out.println("time="+time);
+        
     }
     
 }
