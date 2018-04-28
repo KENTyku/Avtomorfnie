@@ -17,7 +17,7 @@ public class Avtomorfnie {
     */
     public static void main(String[] args) {
        algoritm(1000000); 
-       ex3(1000);
+       ex3(10000);
        ex4(4,8);
     }
     
