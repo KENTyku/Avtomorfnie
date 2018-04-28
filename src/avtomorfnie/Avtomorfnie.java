@@ -18,6 +18,7 @@ public class Avtomorfnie {
     public static void main(String[] args) {
        algoritm(1000000); 
        ex3(1000);
+       ex4(4,8);
     }
     
     /**
@@ -91,6 +92,29 @@ public class Avtomorfnie {
         long time = finish - start;
         System.out.println("time="+time);
         
+    }
+    /**
+     * Задание 4. Реализовать алгоритм ускоренного возведения в степень
+     * 
+     * @param a
+     * @param b 
+     */
+    static void ex4(int a, int b){
+        int n=1;//учитывает нечетную степень
+        int s=a;//учитывает четную степень
+        int k=b;// степень
+        while(k!=0){
+            if(k%2==0){
+                s=s*s;
+                k=k/2;
+            }
+            else{
+                k--;
+                n=n*s;
+            }
+        }
+        System.out.println();
+        System.out.println("результат="+n);
     }
     
 }
